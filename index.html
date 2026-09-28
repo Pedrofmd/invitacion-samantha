@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samantha cumple 4 años 💜</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#09001f;color:#fff}
+.invite{min-height:100vh;padding:28px 16px 40px;text-align:center;background:
+radial-gradient(circle at 20% 10%,#7b2cff 0,transparent 28%),
+radial-gradient(circle at 85% 25%,#ff35cf 0,transparent 25%),
+linear-gradient(145deg,#07001b,#180044 50%,#09001f)}
+.card{max-width:900px;margin:auto;border:2px solid #ff4de1;border-radius:28px;padding:26px 18px 34px;background:rgba(8,0,30,.72);box-shadow:0 0 35px #a72cff88}
+.badge{font-weight:800;letter-spacing:2px;color:#8fe9ff}
+h1{font-size:clamp(42px,10vw,88px);margin:8px 0;color:#ff72e9;text-shadow:0 0 15px #ff20d0}
+h2{font-size:clamp(25px,5vw,42px);margin:5px 0 20px}
+.hero{width:100%;max-width:720px;border-radius:22px;display:block;margin:18px auto;box-shadow:0 0 25px #6e2cff}
+.message{font-size:20px;line-height:1.5;max-width:680px;margin:20px auto}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:650px;margin:25px auto}
+.unit{background:#160044;border:1px solid #ff52df;border-radius:15px;padding:14px 6px;box-shadow:0 0 14px #ff25d044}
+.num{display:block;font-size:clamp(25px,6vw,48px);font-weight:900;color:#fff}
+.label{color:#ff8fea;font-size:12px;text-transform:uppercase}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px auto;max-width:760px}
+.info div{padding:16px;border-radius:16px;background:#120034;border:1px solid #713cff}
+.info strong{display:block;color:#ff82eb;margin-bottom:7px}
+.features{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:25px 0}
+.feature{padding:11px 15px;border-radius:999px;background:#25105d;border:1px solid #65dfff}
+.btn{display:inline-block;margin-top:20px;padding:17px 30px;border-radius:999px;background:linear-gradient(90deg,#ff22cf,#8d4cff);color:white;text-decoration:none;font-weight:900;font-size:18px;box-shadow:0 0 20px #ff2bdc88}
+.small{font-size:13px;color:#cbb9e9;margin-top:22px}
+@media(max-width:600px){.countdown{grid-template-columns:repeat(2,1fr)}.info{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="invite">
+<section class="card">
+<div class="badge">K-POP DEMON HUNTERS ✦ RUMI</div>
+<h1>Samantha</h1>
+<h2>¡Cumple 4 años! 🎂💜</h2>
+<img class="hero" src="PORTADA_RUMI_SAMANTHA.png" alt="Invitación de cumpleaños de Samantha">
+<p class="message">¡Estás invitado a celebrar conmigo un día súper especial lleno de música, baile, juegos, sorpresas y mucha diversión!</p>
+
+<div class="countdown" aria-label="Cuenta regresiva">
+<div class="unit"><span id="days" class="num">--</span><span class="label">Días</span></div>
+<div class="unit"><span id="hours" class="num">--</span><span class="label">Horas</span></div>
+<div class="unit"><span id="minutes" class="num">--</span><span class="label">Minutos</span></div>
+<div class="unit"><span id="seconds" class="num">--</span><span class="label">Segundos</span></div>
+</div>
+
+<div class="info">
+<div><strong>📅 Fecha</strong>15 de noviembre de 2026</div>
+<div><strong>⏰ Hora</strong>5:00 p. m.</div>
+<div><strong>📍 Lugar</strong>Cra 8 # 30-158<br>Salón Social</div>
+</div>
+
+<div class="features">
+<span class="feature">🎤 Música K-Pop</span>
+<span class="feature">💃 Baile</span>
+<span class="feature">📸 Fotos</span>
+<span class="feature">🎁 Sorpresas</span>
+<span class="feature">🎮 Juegos</span>
+<span class="feature">🍰 Torta y dulces</span>
+</div>
+
+<a class="btn" href="https://wa.me/?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Samantha%20el%2015%20de%20noviembre%20a%20las%205%3A00%20p.%20m.%20%F0%9F%92%9C" target="_blank">💗 CONFIRMAR ASISTENCIA</a>
+<p class="small">¡Te esperamos para cantar, bailar y celebrar juntos! ✨</p>
+</section>
+</main>
+
+<script>
+const target = new Date("2026-11-15T17:00:00-05:00").getTime();
+function updateCountdown(){
+  const now = Date.now(), diff = target-now;
+  if(diff <= 0){
+    document.querySelector(".countdown").innerHTML='<div style="grid-column:1/-1;font-size:28px;font-weight:900;color:#ff7be9">🎉 ¡Llegó el gran día! 🎉</div>';
+    return;
+  }
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  document.getElementById("days").textContent=d;
+  document.getElementById("hours").textContent=String(h).padStart(2,"0");
+  document.getElementById("minutes").textContent=String(m).padStart(2,"0");
+  document.getElementById("seconds").textContent=String(s).padStart(2,"0");
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
